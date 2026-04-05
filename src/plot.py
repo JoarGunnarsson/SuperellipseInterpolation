@@ -24,6 +24,7 @@ def plot():
 
     fig, ax = plt.subplots()
     ax.set_aspect('equal', adjustable='box')
+    ax.tick_params(axis="both", which="both", bottom=False, left=False, labelbottom=False, labelleft=False)
 
     slider_ax = fig.add_axes([0.2, 0.025, 0.6, 0.03])
     slider = Slider(
@@ -32,6 +33,7 @@ def plot():
         valmin=0,
         valmax=4,
         valinit=0,
+        initcolor=None
     )
 
     x_init, y_init = get_shape_points(slider.valinit)
@@ -39,6 +41,7 @@ def plot():
 
     slider.on_changed(plot_super_ellipse)
     fig.canvas.manager.set_window_title("Area-based superellipse interpolation")
+
     plt.show()
 
 
